@@ -2,9 +2,19 @@ from opendbc.car import get_safety_config, structs
 from opendbc.car.interfaces import CarInterfaceBase
 from opendbc.car.canabstractcar.carcontroller import CarController
 from opendbc.car.canabstractcar.carstate import CarState
+from opendbc.car.canabstractcar.values import CAN_SPEED_KBPS
 
 
 class CarInterface(CarInterfaceBase):
+  """
+  CANabstractCAR interface for openpilot.
+
+  IMPORTANT: This car port requires the CAN bus to be configured at 125 kbps.
+  The panda must be configured before launching openpilot:
+    panda.set_can_speed_kbps(0, 125)
+
+  See CAN_SPEED_KBPS in values.py for the required speed constant.
+  """
   CarState = CarState
   CarController = CarController
 

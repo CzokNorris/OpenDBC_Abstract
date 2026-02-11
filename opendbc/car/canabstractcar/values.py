@@ -5,6 +5,9 @@ from opendbc.car.fw_query_definitions import FwQueryConfig, Request, StdQueries
 
 Ecu = CarParams.Ecu
 
+# CAN bus speed for CANabstractCAR (125 kbps)
+CAN_SPEED_KBPS = 125
+
 # CAN message frequency requirement (5Hz minimum)
 CAN_FREQUENCY_HZ = 5
 

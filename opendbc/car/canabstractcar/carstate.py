@@ -64,11 +64,11 @@ class CarState(CarStateBase):
     # Charging status (charger disconnected = not charging)
     ret.charging = not cp.vl['VEHICLE_STATUS']['CHARGER_DISCONNECTED']
 
-    # Cruise control set speed - convert km/h to m/s
-    cruise_set_speed_kmh = cp.vl['VEHICLE_STATUS']['CRUISE_SET_SPEED']
+    # Parse BUTTONS_PEDALS (0x46)
+    # Cruise control set speed - now from BUTTONS_PEDALS, convert km/h to m/s
+    cruise_set_speed_kmh = cp.vl['BUTTONS_PEDALS']['CRUISE_SET_SPEED']
     ret.cruiseState.speed = cruise_set_speed_kmh * CV.KPH_TO_MS
 
-    # Parse BUTTONS_PEDALS (0x46)
     # Pedal positions
     ret.gas = cp.vl['BUTTONS_PEDALS']['ACCELERATOR_PEDAL'] / 100.0
 

@@ -10,6 +10,7 @@ VAL_TABLE_ GEAR_STATE 0 "Error" 1 "Neutral" 2 "Drive" 3 "Park" 4 "Reverse" ;
 VAL_TABLE_ TORQUE_POLARITY 0 "Error" 1 "Left" 2 "Right" 3 "None" ;
 
 CM_ "CANabstractCAR DBC file for openpilot car port";
+CM_ "CAN bus speed: 125 kbps";
 CM_ "Message 0x44: Vehicle status at 5Hz minimum";
 CM_ "Message 0x46: Buttons and pedals at 5Hz minimum";
 
@@ -26,7 +27,7 @@ BO_ 68 VEHICLE_STATUS: 8 XXX
  SG_ INDICATOR_LEFT : 37|1@1+ (1,0) [0|1] "" XXX
  SG_ INDICATOR_RIGHT : 38|1@1+ (1,0) [0|1] "" XXX
  SG_ CHARGER_DISCONNECTED : 39|1@1+ (1,0) [0|1] "" XXX
- SG_ CRUISE_SET_SPEED : 47|8@0+ (1,0) [0|255] "km/h" XXX
+ SG_ COUNTER : 47|8@0+ (1,0) [0|255] "" XXX
  SG_ CHECKSUM : 63|16@0+ (1,0) [0|65535] "" XXX
 
 BO_ 70 BUTTONS_PEDALS: 8 XXX
@@ -41,8 +42,8 @@ BO_ 70 BUTTONS_PEDALS: 8 XXX
  SG_ PARKING_BRAKE : 15|1@1+ (1,0) [0|1] "" XXX
  SG_ ACCELERATOR_PEDAL : 23|8@0+ (1,0) [0|100] "%" XXX
  SG_ BRAKE_PEDAL : 31|8@0+ (1,0) [0|100] "%" XXX
- SG_ RESERVED1 : 39|8@0+ (1,0) [0|255] "" XXX
- SG_ RESERVED2 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ CRUISE_SET_SPEED : 39|8@0+ (1,0) [0|255] "km/h" XXX
+ SG_ COUNTER : 47|8@0+ (1,0) [0|255] "" XXX
  SG_ CHECKSUM : 63|16@0+ (1,0) [0|65535] "" XXX
 
 VAL_ 68 GEAR 0 "Error" 1 "Neutral" 2 "Drive" 3 "Park" 4 "Reverse" ;
