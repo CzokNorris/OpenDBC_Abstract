@@ -1,0 +1,50 @@
+VERSION "1.0.0"
+
+NS_ :
+
+BS_:
+
+BU_: XXX
+
+VAL_TABLE_ GEAR_STATE 0 "Error" 1 "Neutral" 2 "Drive" 3 "Park" 4 "Reverse" ;
+VAL_TABLE_ TORQUE_POLARITY 0 "Error" 1 "Left" 2 "Right" 3 "None" ;
+
+CM_ "CANabstractCAR DBC file for openpilot car port";
+CM_ "Message 0x44: Vehicle status at 5Hz minimum";
+CM_ "Message 0x46: Buttons and pedals at 5Hz minimum";
+
+BO_ 68 VEHICLE_STATUS: 8 XXX
+ SG_ SPEED : 7|8@0+ (1,0) [0|255] "km/h" XXX
+ SG_ GEAR : 15|8@0+ (1,0) [0|255] "" XXX
+ SG_ TORQUE_POLARITY : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ DRIVER_TORQUE : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ IGNITION_ON : 32|1@1+ (1,0) [0|1] "" XXX
+ SG_ SEATBELT_OK : 33|1@1+ (1,0) [0|1] "" XXX
+ SG_ BRAKE_PRESSED : 34|1@1+ (1,0) [0|1] "" XXX
+ SG_ ACCELERATOR_PRESSED : 35|1@1+ (1,0) [0|1] "" XXX
+ SG_ DOORS_CLOSED : 36|1@1+ (1,0) [0|1] "" XXX
+ SG_ INDICATOR_LEFT : 37|1@1+ (1,0) [0|1] "" XXX
+ SG_ INDICATOR_RIGHT : 38|1@1+ (1,0) [0|1] "" XXX
+ SG_ CHARGER_DISCONNECTED : 39|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_SET_SPEED : 47|8@0+ (1,0) [0|255] "km/h" XXX
+ SG_ CHECKSUM : 63|16@0+ (1,0) [0|65535] "" XXX
+
+BO_ 70 BUTTONS_PEDALS: 8 XXX
+ SG_ CAR_ID : 7|8@0+ (1,0) [0|255] "" XXX
+ SG_ CRUISE_MAIN : 8|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_RESUME : 9|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_CANCEL : 10|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_UP_1 : 11|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_DOWN_1 : 12|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_UP_10 : 13|1@1+ (1,0) [0|1] "" XXX
+ SG_ CRUISE_DOWN_10 : 14|1@1+ (1,0) [0|1] "" XXX
+ SG_ PARKING_BRAKE : 15|1@1+ (1,0) [0|1] "" XXX
+ SG_ ACCELERATOR_PEDAL : 23|8@0+ (1,0) [0|100] "%" XXX
+ SG_ BRAKE_PEDAL : 31|8@0+ (1,0) [0|100] "%" XXX
+ SG_ RESERVED1 : 39|8@0+ (1,0) [0|255] "" XXX
+ SG_ RESERVED2 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ CHECKSUM : 63|16@0+ (1,0) [0|65535] "" XXX
+
+VAL_ 68 GEAR 0 "Error" 1 "Neutral" 2 "Drive" 3 "Park" 4 "Reverse" ;
+VAL_ 68 TORQUE_POLARITY 0 "Error" 1 "Left" 2 "Right" 3 "None" ;
+
